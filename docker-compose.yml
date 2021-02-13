@@ -1,0 +1,18 @@
+version: "3.0"
+services:
+    mysql:
+        image: mysql:5.5
+        environment: 
+            MYSQL_ROOT_PASSWORD: admin
+            MYSQL_USER: activemq
+            MYSQL_PASSWORD: activemq
+            MYSQL_DATABASE: activemq
+        ports: 
+            - "3306:3306"
+    activemq:
+        build: ./activemq
+        ports: 
+            - "61616:61616"
+            - "8161:8161"
+volumes: 
+    data:
